@@ -1,0 +1,7 @@
+# is_empty(): O(1)
+# prepend(): O(n)
+# append(): O(n) (조건부 O(1))
+# set_head(index): O(1)
+# access(index): O(1)
+# insert(item, index): O(n)
+# remove(index): O(n)
