@@ -6,3 +6,13 @@
 # if t = i 가 되는 때 true
 # 다음 인덱스가 i 일때 false
 
+
+class CircularArrayLoop :
+    def __init__(self, startIndex, ):
+        self.startIndex = startIndex
+
+    def Solution (self, circularArray):
+
+        for in circularArray:
+            if(circularArray.length <= ):
+                return 
