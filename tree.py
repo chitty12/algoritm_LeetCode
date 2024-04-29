@@ -23,11 +23,37 @@
 # 너비 우선 탐색 (Breadth-First Search; BFS)
 # 깊이 우선 탐색 (Depth-First Search; DFS)
 
+class Node:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
 
-class Tree :
-    def __init__(self, root = 0, parent = None):
-        self.root = root
-        self.parent = parent
+class Tree:
+    def __init__(self, root=None):
+        self.root = Node(root) if root is not None else None
+    
+    def preorder_traversal(self, node):
+        if node is not None:
+            print(node.value, end=" ")
+            self.preorder_traversal(node.left)
+            self.preorder_traversal(node.right)
 
-    def SettingNode(self, value, left, right):
-        
+    def inorder_traversal(self, node):
+        if node is not None:
+            self.inorder_traversal(node.left)
+            print(node.value, end=" ")
+            self.inorder_traversal(node.right)
+
+    def postorder_traversal(self, node):
+        if node is not None:
+            self.postorder_traversal(node.left)
+            self.postorder_traversal(node.right)
+            print(node.value, end=" ")
+
+    def search(self, value, node):
+        if node is None:
+            return False
+        if node.value == value:
+            return True
+        return self.search(value, node.left) or self.search(value, node.right)
