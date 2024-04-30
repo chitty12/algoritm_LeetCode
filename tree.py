@@ -31,29 +31,66 @@ class Node:
 
 class Tree:
     def __init__(self, root=None):
-        self.root = Node(root) if root is not None else None
+     if root is not None:
+        self.root = Node(root)
+        self.root.left = None
+        self.root.right = None
+
     
-    def preorder_traversal(self, node):
+    # 전위 순회
+    def preorder(self, node):
         if node is not None:
             print(node.value, end=" ")
-            self.preorder_traversal(node.left)
-            self.preorder_traversal(node.right)
+            self.preorder(node.left)
+            self.preorder(node.right)
 
-    def inorder_traversal(self, node):
+    # 중위 순회
+    def inorder(self, node):
         if node is not None:
-            self.inorder_traversal(node.left)
+            self.inorder(node.left)
             print(node.value, end=" ")
-            self.inorder_traversal(node.right)
+            self.inorder(node.right)
 
-    def postorder_traversal(self, node):
+    # 후위 순회
+    def postorder(self, node):
         if node is not None:
-            self.postorder_traversal(node.left)
-            self.postorder_traversal(node.right)
+            self.postorder(node.left)
+            self.postorder(node.right)
             print(node.value, end=" ")
 
+    # 값 탐색
     def search(self, value, node):
         if node is None:
             return False
         if node.value == value:
             return True
         return self.search(value, node.left) or self.search(value, node.right)
+
+
+# 이진 트리 생성
+tree = Tree(1)
+tree.root.left = Node(2)
+tree.root.right = Node(3)
+tree.root.left.left = Node(4)
+tree.root.left.right = Node(5)
+tree.root.right.left = Node(6)
+tree.root.right.right = Node(7)
+
+# 전위 순회 실행 및 결과 출력
+print("Preorder Traversal:")
+tree.preorder(tree.root)
+print()
+
+# 중위 순회 실행 및 결과 출력
+print("Inorder Traversal:")
+tree.inorder(tree.root)
+print()
+
+# 후위 순회 실행 및 결과 출력
+print("Postorder Traversal:")
+tree.postorder(tree.root)
+print()
+
+# 값 찾기 실행 및 결과 출력
+print("Search for value 5:", tree.search(5, tree.root))
+print("Search for value 8:", tree.search(8, tree.root))
