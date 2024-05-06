@@ -10,39 +10,26 @@ class solution:
         self.count = count
     
     def BallCount(self, balls):
-        
-        if(self.balls == self.share):
+        if balls == self.share:
+            self.count += 1
             return self.count
-
         else:
-            totalBall = self.Factorial(balls)
-            count = totalBall/(self.Factorial(self.share))
+            count = self.Factorial(balls) // (self.Factorial(self.share) * self.Factorial(balls - self.share))
             self.count += count
-            self.share +=1
-            return self.BallCount(balls-1)
+            self.share += 1
+            return self.BallCount(balls)
 
 
-
-    def Factorial(self, number, countNumber):
-        if( counts == countNumber):
-            return counts
-        elif(number == 1):
-            return 1
-        elif(number == 0):
+    def Factorial(self, n):
+        if n == 0:
             return 1
         else:
-            count = number*(self.Factorial(number-1, countNumber))
-            return count
+            return n * self.Factorial(n - 1)
 
 
 
 
 DivideBallCount = solution(5)
-
-factorial = DivideBallCount.Factorial(4)
-
 totalCount = DivideBallCount.BallCount(5)
 
-
-print(factorial)
 print(totalCount)
