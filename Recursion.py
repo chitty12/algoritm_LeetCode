@@ -14,18 +14,16 @@ class solution:
             self.count += 1
             return self.count
         else:
-            count = self.Factorial(balls) // (self.Factorial(self.share) * self.Factorial(balls - self.share))
+            count = self.Factorial(balls) / (self.Factorial(self.share) * self.Factorial(balls - self.share))
             self.count += count
             self.share += 1
             return self.BallCount(balls)
-
 
     def Factorial(self, n):
         if n == 0:
             return 1
         else:
             return n * self.Factorial(n - 1)
-
 
 
 
