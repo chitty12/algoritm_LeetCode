@@ -9,10 +9,10 @@ def solution(s, answer = None):
         count = 0
         for i in s:
             if i != '0':
-                new_number_str = new_number_str + i
-            else :
-                count = count + 1
-        new_number = bin(int(new_number_str, 2))[2:]
+                new_number_str += i
+            else:
+                count += 1        
+        new_number = bin(len(new_number_str))[2:]
 
         answer[0] += 1
         answer[1] += count
