@@ -4,12 +4,16 @@
 
 
 def solution(n, times):
-    i=0
-    count=0
+    low = 1
+    high = max(times) * n
     
-    while :
-        i+=1
-    if count == n:
-        return i
-    # times의 각 숫자와 일치하면 없애고 *
-    7, 10, 14
+    while low <= high:
+        mid = (low + high) // 2
+        total = sum(mid // time for time in times)
+        
+        if total >= n:
+            high = mid - 1
+        else:
+            low = mid + 1
+            
+    return low
